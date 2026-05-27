@@ -1,0 +1,26 @@
+[module]
+name = "ip-reputation"
+version = "0.1.0"
+description = "IP reputation checker using AbuseIPDB - identifies and blocks known malicious IPs and threat actors"
+author = "ainsley17771@gmail.com"
+license = "MIT"
+homepage = "https://github.com/emil07770/threatcrush-ip-reputation"
+
+[module.pricing]
+type = "free"
+
+[module.requirements]
+threatcrush = ">=0.2.0"
+os = ["linux", "darwin", "windows"]
+capabilities = ["network:outbound"]
+
+[module.config.defaults]
+enabled = true
+# How often to poll AbuseIPDB for new threat data (seconds)
+poll_interval_seconds = 300
+# AbuseIPDB API key (required - get free key at abuseipdb.com)
+abuseipdb_api_key = ""
+# Only emit events for IPs with confidence score >= this threshold (0-100)
+confidence_threshold = 75
+# Severity level for events
+severity_threshold = "medium"
